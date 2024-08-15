@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Asignacion</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      /* Modern high contrast handling */
+      @media (forced-colors: active) {
+        .example {
+          color: HighlightText;
+          background-color: Highlight;
+        }
+      }
+      .form-container {
+        background: #91eed2;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .form-container h1 {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        margin-top: 10px;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+      .form-group button {
+        padding: 10px 15px;
+        background: #007bff;
+        color: #f0f0f0;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      .form-group button:hover {
+        background: #967bd4;
+      }
+      .radio-group {
+        margin-bottom: 15px;
+      }
+      .radio-group label {
+        margin-right: 10px;
+      }
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Asignacion</h1>
+      <h2>Input the following information:</h2>
+      <form id="asignacionForm">
+        <div class="form-group">
+          <label for="Column_6">Periodo del pago</label>
+          <input type="text" id="Column_6" name="Column_6" required>
+        </div>
+        <div class="form-group">
+            <label for="Column_3">Fecha</label>
+            <input type="text" id="Column_3" name="Column_3" required>
+        </div>
+        <div class="form-group">
+          <label for="Column_9">Fecha del empiezo el periodo del pago</label>
+          <input type= "text" id="Column_9" name="Column_9" required></textarea>
+      </div>
+        <div class="form-group">
+            <label for="Column_8">Fecha al termina el periodo del pago</label>
+            <input type= "text" id="Column_8" name="Column_8" required></textarea>
+        </div>
+        <h2>ARTICULO DE LA CONVENCION COLECTIVA</h2>
+        <div class="radio-group">
+          <label>27.06 (25%)</label>
+          <label><input type= "radio" name="radio1" value="Option 1_1">ESCLUSAJE PD-1 Y PD-2</label>
+          <label><input type= "radio" name="radio1" value="Option 1_2">ESCLUSAJE CON BUQUE LPG</label>
+          <label><input type= "radio" name="radio1" value="Option 1_3">ESCLUSAJE CON BUQUE LNG</label>
+        </div>
+        <div class="radio-group">
+          <label>27.08 (15%)</label>
+          <label><input type= "radio" name="radio2" value="Option 2_1">ABORDAR O DESEMBARCAR BAJO MAL TIEMPO</label>
+          <label><input type= "radio" name="radio2" value="Option 2_2">ABORDAR O DESEMBARCAR EN "ALTA MAR"</label>
+          <label><input type= "radio" name="radio2" value="Option 2_3">ABORDAR O DESEMBARCAR A ORILLAS DE COSTA</label>
+          <label><input type= "radio" name="radio2" value="Option 2_4">TRANSBORDAR EQUIPO EN MUELLES RUDIMENTARIOS</label>
+        </div>
+        <div class="radio-group">
+          <label>27.09 (25%)</label>
+          <label><input type= "radio" name="radio3" value="Option 3_1">GUARDIA DE NEBLINA</label>
+          <label><input type= "radio" name="radio3" value="Option 3_2">NAVEGACION BAJO VISIBILIDAD RESTRINGIDA SEVERA</label>
+          <label><input type= "radio" name="radio3" value="Option 3_3">NAVEGACION CON FUERTES CORRIENTES HIDROGRAFICAS</label>
+          <label><input type= "radio" name="radio3" value="Option 3_4">IR MAS ALLA DEL PUNTO DE ENCUENTRO POR MALA VISIBILIDAD</label>
+          <label><input type= "radio" name="radio3" value="Option 3_5">EXPONERSE A FUERTES OLEAJES O CHORRO DEL BUQUE</label>
+        </div>
+        <div class="radio-group">
+          <label>29.01(1) ($150.00 X EVENTO)</label>
+          <label><input type= "radio" name="radio4" value="Option 4_a">BUQUE SIN PROPULSION O GOBIERNO</label>
+          <label><input type= "radio" name="radio4" value="Option 4_b">BUQUES CON VISIBILIDAD RESTRINGIDA</label>
+          <label><input type= "radio" name="radio4" value="Option 4_c">SUBMARINOS, COMPUERTAS, TUBERIAS</label>
+          <label><input type= "radio" name="radio4" value="Option 4_d">ESCOLTA DE BUQUES CON Y SIN PROPULSION EN CUALQUIER LUGAR</label>
+          <label><input type= "radio" name="radio4" value="Option 4_e">CAISSON</label>
+          <label><input type= "radio" name="radio4" value="Option 4_f">REMOCION DE CABLES LINEAS O CUALQUIER OTRO TIPO DE OBSTRUCCION EN ANCLAS</label>
+          <label><input type= "radio" name="radio4" value="Option 4_g">OPERAR DRAGA A.A. ZUBIETA</label>
+          <label><input type= "radio" name="radio4" value="Option 4_j">BARCAZAS DE COMBUSTIBLE</label>
+          <label><input type= "radio" name="radio4" value="Option 4_k">REABASTECIMIENTO DE COMBUSTIBLE Y O ACEITES</label>
+        </div>
+        <div class="radio-group">
+          <label></label>
+          <label><input type= "radio" name="radio5" value="Option 5">otros cargos (ver notas)</label>
+        </div>
+        <div class="form-group">
+            <button type="submit">Guadar y salir</button>
+            <button type="submit">Anadir otra asignacion</button>
+        </div>
+      </form>
+      <div id="result"></div>
+    </div>
+    <script>
+      document.getElementById('submissionForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            document.getElementById('result').innerText = 'Submission successful!';
+            window.location.href = 'asignacion.html'; //redirecting to new page
+            } else {
+            document.getElementById('result').innerText = 'An error occurred. Please try again.';
+            }
+        };
+        xhr.send(formData);
+      });
+    </script>
+    
+  </body>
+</html>

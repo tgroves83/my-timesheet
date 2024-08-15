@@ -111,6 +111,7 @@
         xhr.onload = function() {
           if (xhr.status === 200) {
             document.getElementById('result').innerText = 'Submission successful!';
+            window.location.href = 'asignacion.html'; //redirecting to new page
             } else {
             document.getElementById('result').innerText = 'An error occurred. Please try again.';
             }
