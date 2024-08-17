@@ -155,18 +155,18 @@
         xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
         xhr.onload = function() {
           if (xhr.status === 200) {
-            document.getElementById('result').innerText = 'Submission successful!';
+            document.getElementById('result').innerText = 'Submitting data...';
             if (e.submitter.id === "gsbutton"){
-              alert('data has been submitted. Closing program.');
+              alert('Closing program.');
               //window.close();
             } else if (e.submitter.id === "anadbutton"){
-              alert('data has been submitted.');
+              alert('data has been submitted');
               window.location.href = 'asignacion.html'; //redirecting to new page
             }  
           } else {
             document.getElementById('result').innerText = 'An error occurred. Please try again.';
           }
-        };
+        }
         xhr.send(formData);
       });
     </script>
