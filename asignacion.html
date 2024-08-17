@@ -59,6 +59,13 @@
       .radio-group label {
         margin-right: 10px;
       }
+      .radio-group ul {
+        list-style-type: none; /* Remove bullet points */
+        padding-left: 0; /* Remove default padding */
+      }
+      .radio-group li {
+        margin-bottom: 10px; /* Space between list items */
+      }
       .button-group {
         display: flex;
         justify-content: space-between;
@@ -89,44 +96,53 @@
         <h2>ARTICULO DE LA CONVENCION COLECTIVA</h2>
         <div class="radio-group">
           <label>27.06 (25%)</label>
-          <label><input type= "radio" name="radio1" value="Option 1">ESCLUSAJE PD-1 Y PD-2</label>
-          <label><input type= "radio" name="radio1" value="Option 2">ESCLUSAJE CON BUQUE LPG</label>
-          <label><input type= "radio" name="radio1" value="Option 3">ESCLUSAJE CON BUQUE LNG</label>
+          <ul>
+            <li><label><input type= "radio" name="radio1" value="Option 1">ESCLUSAJE PD-1 Y PD-2</label></li>
+            <li><label><input type= "radio" name="radio1" value="Option 2">ESCLUSAJE CON BUQUE LPG</label></li>
+            <li><label><input type= "radio" name="radio1" value="Option 3">ESCLUSAJE CON BUQUE LNG</label></li>
+          </ul>
         </div>
         <div class="radio-group">
           <label>27.08 (15%)</label>
-          <label><input type= "radio" name="radio2" value="Option 1">ABORDAR O DESEMBARCAR BAJO MAL TIEMPO</label>
-          <label><input type= "radio" name="radio2" value="Option 2">ABORDAR O DESEMBARCAR EN "ALTA MAR"</label>
-          <label><input type= "radio" name="radio2" value="Option 3">ABORDAR O DESEMBARCAR A ORILLAS DE COSTA</label>
-          <label><input type= "radio" name="radio2" value="Option 4">TRANSBORDAR EQUIPO EN MUELLES RUDIMENTARIOS</label>
+          <ul>
+            <li><label><input type= "radio" name="radio2" value="Option 1">ABORDAR O DESEMBARCAR BAJO MAL TIEMPO</label></li>
+            <li><label><input type= "radio" name="radio2" value="Option 2">ABORDAR O DESEMBARCAR EN "ALTA MAR"</label></li>
+            <li><label><input type= "radio" name="radio2" value="Option 3">ABORDAR O DESEMBARCAR A ORILLAS DE COSTA</label></li>
+            <li><label><input type= "radio" name="radio2" value="Option 4">TRANSBORDAR EQUIPO EN MUELLES RUDIMENTARIOS</label></li>
         </div>
         <div class="radio-group">
           <label>27.09 (25%)</label>
-          <label><input type= "radio" name="radio3" value="Option 1">GUARDIA DE NEBLINA</label>
-          <label><input type= "radio" name="radio3" value="Option 2">NAVEGACION BAJO VISIBILIDAD RESTRINGIDA SEVERA</label>
-          <label><input type= "radio" name="radio3" value="Option 3">NAVEGACION CON FUERTES CORRIENTES HIDROGRAFICAS</label>
-          <label><input type= "radio" name="radio3" value="Option 4">IR MAS ALLA DEL PUNTO DE ENCUENTRO POR MALA VISIBILIDAD</label>
-          <label><input type= "radio" name="radio3" value="Option 5">EXPONERSE A FUERTES OLEAJES O CHORRO DEL BUQUE</label>
-        </div>
+          <ul>
+            <li><label><input type= "radio" name="radio3" value="Option 1">GUARDIA DE NEBLINA</label></li>
+            <li><label><input type= "radio" name="radio3" value="Option 2">NAVEGACION BAJO VISIBILIDAD RESTRINGIDA SEVERA</label></li>
+            <li><label><input type= "radio" name="radio3" value="Option 3">NAVEGACION CON FUERTES CORRIENTES HIDROGRAFICAS</label></li>
+            <li><label><input type= "radio" name="radio3" value="Option 4">IR MAS ALLA DEL PUNTO DE ENCUENTRO POR MALA VISIBILIDAD</label></li>
+            <li><label><input type= "radio" name="radio3" value="Option 5">EXPONERSE A FUERTES OLEAJES O CHORRO DEL BUQUE</label></li>
+          </ul>
+          </div>
         <div class="radio-group">
           <label>29.01(1) ($150.00 X EVENTO)</label>
-          <label><input type= "radio" name="radio4" value="Option a">BUQUE SIN PROPULSION O GOBIERNO</label>
-          <label><input type= "radio" name="radio4" value="Option b">BUQUES CON VISIBILIDAD RESTRINGIDA</label>
-          <label><input type= "radio" name="radio4" value="Option c">SUBMARINOS, COMPUERTAS, TUBERIAS</label>
-          <label><input type= "radio" name="radio4" value="Option d">ESCOLTA DE BUQUES CON Y SIN PROPULSION EN CUALQUIER LUGAR</label>
-          <label><input type= "radio" name="radio4" value="Option e">CAISSON</label>
-          <label><input type= "radio" name="radio4" value="Option f">REMOCION DE CABLES LINEAS O CUALQUIER OTRO TIPO DE OBSTRUCCION EN ANCLAS</label>
-          <label><input type= "radio" name="radio4" value="Option g">OPERAR DRAGA A.A. ZUBIETA</label>
-          <label><input type= "radio" name="radio4" value="Option j">BARCAZAS DE COMBUSTIBLE</label>
-          <label><input type= "radio" name="radio4" value="Option k">REABASTECIMIENTO DE COMBUSTIBLE Y O ACEITES</label>
+          <ul>
+            <li><label><input type= "radio" name="radio4" value="Option a">BUQUE SIN PROPULSION O GOBIERNO</label></li>
+            <li><label><input type= "radio" name="radio4" value="Option b">BUQUES CON VISIBILIDAD RESTRINGIDA</label></li>
+            <li><label><input type= "radio" name="radio4" value="Option c">SUBMARINOS, COMPUERTAS, TUBERIAS</label></li>
+            <li><label><input type= "radio" name="radio4" value="Option d">ESCOLTA DE BUQUES CON Y SIN PROPULSION EN CUALQUIER LUGAR</label></li>
+            <li><label><input type= "radio" name="radio4" value="Option e">CAISSON</label></li>
+            <li><label><input type= "radio" name="radio4" value="Option f">REMOCION DE CABLES LINEAS O CUALQUIER OTRO TIPO DE OBSTRUCCION EN ANCLAS</label></li>
+            <li><label><input type= "radio" name="radio4" value="Option g">OPERAR DRAGA A.A. ZUBIETA</label></li>
+            <li><label><input type= "radio" name="radio4" value="Option j">BARCAZAS DE COMBUSTIBLE</label></li>
+            <li><label><input type= "radio" name="radio4" value="Option k">REABASTECIMIENTO DE COMBUSTIBLE Y O ACEITES</label></li>
+          </ul>  
         </div>
         <div class="radio-group">
-          <label></label>
-          <label><input type= "radio" name="radio5" value="Option 1">otros cargos (ver notas)</label>
+          <label>Otros</label>
+          <ul>
+            <li><label><input type= "radio" name="radio5" value="Option 1">otros cargos (ver notas)</label></li>
+          </ul>
         </div>
         <div class="form-group">
-            <button type="submit">Guadar y salir</button>
-            <button type="submit">Anadir otra asignacion</button>
+            <button type="submit" id="gsbutton" name="gsbutton">Guadar y salir</button>
+            <button type="submit" id="anadbutton" name="anadbutton">Anadir otra asignacion</button>
         </div>
       </form>
       <div id="result"></div>
@@ -140,10 +156,16 @@
         xhr.onload = function() {
           if (xhr.status === 200) {
             document.getElementById('result').innerText = 'Submission successful!';
-            window.location.href = 'asignacion.html'; //redirecting to new page
-            } else {
+            if (e.submitter.id === "gsbutton"){
+              alert('data has been submitted. Closing program.');
+              //window.close();
+            } else if (e.submitter.id === "anadbutton"){
+              alert('data has been submitted.');
+              window.location.href = 'asignacion.html'; //redirecting to new page
+            }  
+          } else {
             document.getElementById('result').innerText = 'An error occurred. Please try again.';
-            }
+          }
         };
         xhr.send(formData);
       });
