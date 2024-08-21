@@ -111,7 +111,7 @@
       document.getElementById('submissionForm').addEventListener('submit', function(e) {
         e.preventDefault();
         if (e.submitter.id === "submitbutton"){
-          document.getElementById('action').value = "newentry";
+          document.getElementById('action').value = "save";
         var formData = new FormData(this);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
