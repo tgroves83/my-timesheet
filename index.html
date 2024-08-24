@@ -117,14 +117,14 @@
           //}).clearSheetData();  Call the clearSheetData function' when used from google app scripts!!
           fetch('https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec?action=clear', {
             method: 'POST',
-          })
-          .then(response => response.text())
-          .then(data => {
-            alert(data); // Show success message
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
+        })
+        .then(response => response.text())
+        .then(data => {
+          alert(data); // Show success message
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
         }
       });
       document.getElementById('submissionForm').addEventListener('submit', function(e) {
