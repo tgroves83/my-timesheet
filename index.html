@@ -65,6 +65,9 @@
       <h2>Input the following information:</h2>
       <form id="submissionForm">
         <div class="form-group">
+          <button type="submit" id="clearbutton">Clear excel form</button>
+      </div>
+        <div class="form-group">
           <label for="Column_6">Periodo del pago</label>
           <input type="text" id="Column_6" name="Column_6" required>
         </div>
@@ -107,12 +110,20 @@
       <div id="result"></div>
     </div>
     <script>
+      document.getElementById('clearSheetButton').addEventListener('click', function() {
+        if (confirm('Are you sure you want to clear the sheet? This action cannot be undone.')) {
+          google.script.run.withSuccessHandler(function(response) {
+            alert(response); // Show a success message
+          }).clearSheetData(); // Call the clearSheetData function
+        }
+      });
       document.getElementById('submissionForm').addEventListener('submit', function(e) {
         e.preventDefault();
         var formData = new FormData(this);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
         xhr.onload = function() {
+          document.getElementById('submissionForm').reset(); //clear form upon loading
           if (xhr.status === 200) {
             document.getElementById('result').innerText = 'Submission successful!';
             window.location.href = 'asignacion.html'; //redirecting to new page
