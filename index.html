@@ -65,7 +65,7 @@
       <h2>Input the following information:</h2>
       <form id="submissionForm">
         <div class="form-group">
-          <button type="submit" id="clearbutton">Clear excel form</button>
+          <button type="submit" id="clearButton">Clear excel form</button>
       </div>
         <div class="form-group">
           <label for="Column_6">Periodo del pago</label>
@@ -110,17 +110,28 @@
       <div id="result"></div>
     </div>
     <script>
-      document.getElementById('clearSheetButton').addEventListener('click', function() {
+      document.getElementById('clearButton').addEventListener('click', function() {
         if (confirm('Are you sure you want to clear the sheet? This action cannot be undone.')) {
-          google.script.run.withSuccessHandler(function(response) {
-            alert(response); // Show a success message
-          }).clearSheetData(); // Call the clearSheetData function
+          //following method needs to be changed to 'google.script.run.withSuccessHandler(function(response) {
+           // alert(response);  Show a success message
+          //}).clearSheetData();  Call the clearSheetData function' when used from google app scripts!!
+          fetch('https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec?action=clear', {
+            method: 'POST',
+          })
+          .then(response => response.text())
+          .then(data => {
+            alert(data); // Show success message
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
         }
       });
       document.getElementById('submissionForm').addEventListener('submit', function(e) {
         e.preventDefault();
         var formData = new FormData(this);
         var xhr = new XMLHttpRequest();
+        //following method needs to be changed when used from google app scripts!!
         xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
         xhr.onload = function() {
           document.getElementById('submissionForm').reset(); //clear form upon loading
