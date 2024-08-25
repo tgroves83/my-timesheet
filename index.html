@@ -62,11 +62,11 @@
   <body>
     <div class="form-container">
       <h1>Timesheet</h1>
+      <div class="form-group">
+        <button type="submit" id="clearButton">Clear excel form</button>
+      </div>
       <h2>Input the following information:</h2>
       <form id="submissionForm">
-        <div class="form-group">
-          <button type="submit" id="clearButton">Clear excel form</button>
-        </div>
         <div class="form-group">
           <label for="Column_6">Periodo del pago</label>
           <input type="number" id="Column_6" name="Column_6" required>
@@ -129,6 +129,20 @@
       });*/
       document.getElementById('submissionForm').addEventListener('submit', function(e) {
         e.preventDefault();
+        // Get the date input value
+        let fechaValue = document.getElementById('Column_3').value;
+        let empiezaValue = document.getElementById('Column_9').value;
+        let terminaValue = document.getElementById('Column_8').value;
+
+        // Format the date to dd/mm/yyyy
+        let formattedDate1 = formatDateToDDMMYYYY(fechaValue);
+        let formattedDate2 = formatDateToDDMMYYYY(empiezaValue);
+        let formattedDate3 = formatDateToDDMMYYYY(terminaValue);
+
+        // Manually set the formatted date value in the form
+        document.getElementById('Column_3').value = formattedDate1;
+        document.getElementById('Column_9').value = formattedDate2;
+        document.getElementById('Column_8').value = formattedDate3;
         var formData = new FormData(this);
         var xhr = new XMLHttpRequest();
         //following method needs to be changed when used from google app scripts!!
