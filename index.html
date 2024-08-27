@@ -61,7 +61,7 @@
   </head>
   <body>
     <div class="form-container">
-      <h1>Timesheet Rev3</h1>
+      <h1>Timesheet Rev1</h1>
       <div class="form-group">
         <button type="submit" id="clearButton">Clear excel form</button>
       </div>
@@ -130,35 +130,30 @@
         xhr.send(formData);
       });
 
-      document.getElementById('clearFormButton').addEventListener('click', function() {
-    // Ask the user for confirmation before proceeding
+      document.getElementById('clearButton').addEventListener('click', function() {
         var userConfirmed = confirm("Are you sure you want to clear the form?");
 
         if (userConfirmed) {
-          // User confirmed, proceed with clearing the form
           var xhr = new XMLHttpRequest();
           var params = new URLSearchParams();
           params.append('action', 'clear');
-
+            
           xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
-
-          // Set the correct header for sending form data
-          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-          xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Alert the user that the sheet has been cleared
-                alert("The sheet has been cleared.");
+          xhr.onload = function() {
+            if (xhr.status === 200) {
+              document.getElementById('result').innerText = 'Sheet cleared successfully!';
+            } else {
+              document.getElementById('result').innerText = 'An error occurred while clearing the sheet.';
             }
           };
-
-          // Send the request with the parameters
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
           xhr.send(params.toString());
-        } else {
-          // User canceled, do nothing
+          alert("The sheet has been cleared.");
+        }
+        else {
           alert("Operation canceled.");
         }
-      });
+        });
       
     </script>
     
