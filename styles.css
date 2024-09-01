@@ -25,7 +25,6 @@ body {
   .form-container {
     width: 100%;
     max-width: 500px; /* reduced width for better focus */
-    /*margin: auto;*/
     background: #ffffff;
     padding: 30px; /*increased padding for spacios layout */
     border-radius: 10px; /* rounded corners for a modern look */
@@ -38,7 +37,7 @@ body {
     font-size: 24px;
     color: #333; /* darker text for readability */
     text-align: center;
-    border-bottom: 2px solid #67bcdd; /* underline with brand color */
+    border-bottom: 2px solid #9dc8dae3; /* underline with brand color */
     padding-bottom: 10px;
   }
   /* Form Group Styling */
@@ -53,7 +52,7 @@ body {
     width: 90%;
     padding: 12px 15px;
     margin-bottom: 20px;
-    margin-right: 20px;
+    margin-right: 10px;
     border: 1px solid #ddd; /* Light border */
     border-radius: 5px;
     background-color: #f9f9f9; /* Light background for inputs */
@@ -62,7 +61,7 @@ body {
   /* Focus States for Inputs */
   .form-group input:focus,
   .form-group textarea:focus {
-    border-color: #67bcdd; /* Highlight border on focus */
+    border-color: #9dc8dae3; /* Highlight border on focus */
     box-shadow: 0 0 5px rgba(103, 188, 221, 0.5); /* Subtle shadow on focus */
   }
   /* Submit Button Styling */
@@ -70,7 +69,7 @@ body {
     width: 100%;
     padding: 12px 0;
     margin-bottom: 10px;
-    background: linear-gradient(45deg, #67bcdd, #36a8ef); /* Gradient background */
+    background: linear-gradient(45deg, #9dc8dae3, #9fa4ebee); /* Gradient background */
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -81,7 +80,7 @@ body {
   }
   /* Hover State for Button */
   .form-group button:hover {
-    background: linear-gradient(45deg, #36a8ef, #67bcdd); /* Reverse gradient on hover */
+    background: linear-gradient(45deg, #9fa4ebee, #9dc8dae3); /* Reverse gradient on hover */
   }
   /* Focus State for Button */
   .form-group button:focus {
