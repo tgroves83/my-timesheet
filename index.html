@@ -68,6 +68,7 @@
         xhr.onload = function() {
           document.getElementById('submissionForm').reset(); //clear form upon loading
           if (xhr.status === 200) {
+            alert('data has been submitted');
             document.getElementById('result').innerText = 'Submission successful!';
             window.location.href = 'asignacion.html'; //redirecting to new page
             } else {

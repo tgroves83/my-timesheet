@@ -25,7 +25,7 @@ body {
     width: 100%;
     max-width: 600px;
     margin: auto;
-    background: #91eed2;
+    background: #67bcdd;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -46,12 +46,12 @@ body {
   }
   .form-group button {
     padding: 10px 15px;
-    background: #007bff;
-    color: #f0f0f0;
+    background: #fdf916;
+    color: #000000;
     border: none;
     cursor: pointer;
     margin-top: 10px;
   }
   .form-group button:hover {
-    background: #967bd4;
+    background: #fde665;
   }
