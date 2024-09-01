@@ -101,7 +101,6 @@
           if (xhr.status === 200) {
             document.getElementById('result').innerText = 'Submitting data...';
             if (e.submitter.id === "gsbutton"){
-              alert('Closing program.');
               window.location.href = 'goodbye.html'; //redirecting to goodbye page
             } else if (e.submitter.id === "anadbutton"){
               alert('data has been submitted');
