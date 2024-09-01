@@ -50,10 +50,10 @@ body {
   }
   .form-group input,
   .form-group textarea {
-    width: 100%;
+    width: 90%;
     padding: 12px 15px;
     margin-bottom: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
     border: 1px solid #ddd; /* Light border */
     border-radius: 5px;
     background-color: #f9f9f9; /* Light background for inputs */
