@@ -37,7 +37,7 @@ body {
     font-size: 24px;
     color: #333; /* darker text for readability */
     text-align: center;
-    border-bottom: 2px solid #7ac5e6e3; /* underline with brand color */
+    border-bottom: 2px solid #449ec5d3; /* underline with brand color */
     padding-bottom: 10px;
   }
   /* Form Group Styling */
@@ -49,7 +49,7 @@ body {
   }
   .form-group input,
   .form-group textarea {
-    width: 90%;
+    width: 95%;
     padding: 12px 15px;
     margin-bottom: 20px;
     margin-right: 10px;
@@ -69,7 +69,7 @@ body {
     width: 100%;
     padding: 12px 0;
     margin-bottom: 10px;
-    background: linear-gradient(45deg, #7ac5e6e3, #9fa4ebee); /* Gradient background */
+    background: linear-gradient(45deg, #449ec5d3, #9fa4ebee); /* Gradient background */
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -80,7 +80,7 @@ body {
   }
   /* Hover State for Button */
   .form-group button:hover {
-    background: linear-gradient(45deg, #9fa4ebee, #7ac5e6e3); /* Reverse gradient on hover */
+    background: linear-gradient(45deg, #9fa4ebee, #449ec5d3); /* Reverse gradient on hover */
   }
   /* Focus State for Button */
   .form-group button:focus {
