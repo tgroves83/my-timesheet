@@ -53,6 +53,7 @@ body {
     width: 100%;
     padding: 12px 15px;
     margin-bottom: 20px;
+    margin-right: 10px;
     border: 1px solid #ddd; /* Light border */
     border-radius: 5px;
     background-color: #f9f9f9; /* Light background for inputs */
@@ -68,6 +69,7 @@ body {
   .form-group button {
     width: 100%;
     padding: 12px 0;
+    margin-bottom: 10px;
     background: linear-gradient(45deg, #67bcdd, #36a8ef); /* Gradient background */
     color: #fff;
     font-size: 16px;
