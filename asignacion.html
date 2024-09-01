@@ -4,14 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Asignacion</title>
+    <!-- Link to external CSS stylesheet -->
     <link rel="stylesheet" type = "text/css" href="styles.css"/>
   </head>
   <body>
     <div class="form-container">
       <h1>Asignacion</h1>
-      <h2>Input the following information:</h2>
+      <h2>Ingrese la siguiente información:</h2>
+      <!-- The form for user input -->
       <form id="asignacionForm">
+        <!-- Hidden input to track the action (save or add) -->
         <input type="hidden" name="action" id="action" value="save">
+        <!-- Input field for Asignacion -->
         <div class="form-group">
           <label for="Column_10">Asignacion</label>
           <input type="text" id="Column_10" name="Column_10" required></textarea>
@@ -28,7 +32,9 @@
             <label for="Column_13">Duracion: Hasta</label>
             <input type= "time" id="Column_13" name="Column_13" step="60" required></textarea>
         </div>
+        <!-- Section heading for article checkbox selection -->
         <h2>ARTICULO DE LA CONVENCION COLECTIVA</h2>
+        <!-- Checkbox groups for different article sections -->
         <div class="checkbox-group">
           <label>27.06 (25%)</label>
           <ul>
@@ -75,18 +81,22 @@
             <li><label><input type= "checkbox" name="checkbox5" value="Option 1">otros cargos (ver notas)</label></li>
           </ul>
         </div>
+        <!-- Buttons to submit or add more entries -->
         <div class="form-group">
             <button type="submit" id="gsbutton" name="gsbutton">Guadar y salir</button>
             <button type="submit" id="anadbutton" name="anadbutton">Anadir otra asignacion</button>
         </div>
       </form>
+      <!-- Container to display result or error messages -->
       <div id="result">
 
       </div>
     </div>
+    <!-- JavaScript section for handling form submission and AJAX request -->
     <script>
+      // Event listener to handle form submission
       document.getElementById('asignacionForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault();// Prevent the form from submitting the default way
         console.log("Form submitted");
         // Change the action based on the button clicked
         if (e.submitter.id === "gsbutton"){
@@ -94,23 +104,28 @@
         } else if (e.submitter.id === "anadbutton"){
           document.getElementById('action').value = "add";
         }
+        // Collect form data to be sent to the server
         var formData = new FormData(this);
+        // Create a new XMLHttpRequest object for making an AJAX request
         var xhr = new XMLHttpRequest();
+        // Open a POST request to the specified URL
         xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+        // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
         xhr.onload = function() {
           if (xhr.status === 200) {
             document.getElementById('result').innerText = 'Submitting data...';
+            // Redirect based on the button clicked
             if (e.submitter.id === "gsbutton"){
               window.location.href = 'goodbye.html'; //redirecting to goodbye page
             } else if (e.submitter.id === "anadbutton"){
-              alert('data has been submitted');
-              window.location.href = 'asignacion.html'; //redirecting to new page
+              alert('Los datos han sido enviados');
+              window.location.href = 'asignacion.html'; //redirecting to asignacion page to enter more data
             }  
           } else {
             document.getElementById('result').innerText = 'An error occurred. Please try again.';
           }
         }
-        xhr.send(formData);
+        xhr.send(formData); //Send the data collected in a form to a server via an HTTP request
       });
     </script>
     

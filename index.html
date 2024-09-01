@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags for responsiveness and compatibility -->
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Page Title -->
     <title>Timesheet</title>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" type = "text/css" href="styles.css"/>
   </head>
   <body>
+    <!-- Main form container -->
     <div class="form-container">
-      <h1>Timesheet</h1>
+      <h1>ANEXO PARA CARGOS POR TRABAJOS ESPECIALES</h1>
+      <!-- Button to clear previous form data -->
       <div class="form-group">
-        <button type="submit" id="clearButton">Clear excel form</button>
+        <button type="submit" id="clearButton">Borrar Anexo Anterior</button>
       </div>
-      <h2>Input the following information:</h2>
+      <!-- Instructions for the user -->
+      <h2>Ingrese la siguiente información:</h2>
+      <!-- Form element to capture user input -->
       <form id="submissionForm">
+        <!-- Each form-group represents a single input field -->
         <div class="form-group">
           <label for="Column_6">Periodo del pago</label>
           <input type="number" id="Column_6" name="Column_6" required>
@@ -23,11 +31,11 @@
             <input type="date" id="Column_3" name="Column_3" required>
         </div>
         <div class="form-group">
-          <label for="Column_9">Fecha del empiezo el periodo del pago</label>
+          <label for="Column_9">Fecha de inicio del período de pago</label>
           <input type= "date" id="Column_9" name="Column_9" required></textarea>
         </div>
         <div class="form-group">
-            <label for="Column_8">Fecha al termina el periodo del pago</label>
+            <label for="Column_8">Fecha de finalización del período de pago</label>
             <input type= "date" id="Column_8" name="Column_8" required></textarea>
         </div>
         <div class="form-group">
@@ -39,7 +47,7 @@
           <input type= "time" id="Column_2" name="Column_2" step="60" required></textarea>
         </div>
         <div class="form-group">
-          <label for="Column_4">Nombre del Capitan</label>
+          <label for="Column_4">Nombre del Capitán</label>
           <input type= "text" id="Column_4" name="Column_4" required></textarea>
         </div>
         <div class="form-group">
@@ -50,41 +58,51 @@
           <label for="Column_7">Remolcador</label>
           <input type= "text" id="Column_7" name="Column_7" required></textarea>
         </div>
+        <!-- Submit button to initiate sending the user inputted information to the google sheet -->
         <div class="form-group">
-            <button type="submit" id="submitbutton">Submit</button>
+            <button type="submit" id="submitbutton">Seguir</button>
         </div>
       </form>
+      <!-- Area to display result messages -->
       <div id="result"></div>
       </div>
-    <script>
-      document.getElementById('submissionForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+      <!-- JavaScript to handle form submission and clear functionality -->
+      <script>
+        // Attach event listener to the form submission event
+        document.getElementById('submissionForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission behavior
         
-        var formData = new FormData(this);
-        var xhr = new XMLHttpRequest();
+        var formData = new FormData(this); // Create a FormData object from the form's data
+        var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
         //following method needs to be changed when used from google app scripts!!
+        // Initialize a new XMLHttpRequest to handle the POST request
         xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+        // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
         xhr.onload = function() {
           document.getElementById('submissionForm').reset(); //clear form upon loading
-          if (xhr.status === 200) {
-            alert('data has been submitted');
-            document.getElementById('result').innerText = 'Submission successful!';
-            window.location.href = 'asignacion.html'; //redirecting to new page
+          if (xhr.status === 200) { // Check if the request was successful
+            alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
+            document.getElementById('result').innerText = 'Submission successful!'; // If successful, update the 'result' element to indicate the sheet was cleared
+            window.location.href = 'asignacion.html'; //redirect to new page
             } else {
-            document.getElementById('result').innerText = 'An error occurred. Please try again.';
+        // If an error occurred, update the 'result' element with an error message
+              document.getElementById('result').innerText = 'An error occurred. Please try again.';
             }
         };
         xhr.send(formData);
       });
 
+      // Attach event listener to the clear button
       document.getElementById('clearButton').addEventListener('click', function() {
-        var userConfirmed = confirm("Are you sure you want to clear the form?");
+        // Display a confirmation dialog to the user and stores answer in variable
+        var userConfirmed = confirm("¿Estás seguro de que deseas borrar el formulario?");
 
         if (userConfirmed) {
-          var xhr = new XMLHttpRequest();
-          var params = new URLSearchParams();
-          params.append('action', 'clear');
-            
+          var xhr = new XMLHttpRequest(); // If the user confirms, create a new XMLHttpRequest object to send the clear action to the server
+          var params = new URLSearchParams(); // Create a new URLSearchParams object to hold the parameters for the request
+          params.append('action', 'clear'); // Append the 'clear' action to the parameters
+          
+          // Change the following URL when deploying on Google Apps Scripts
           xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
           xhr.onload = function() {
             if (xhr.status === 200) {
@@ -93,14 +111,17 @@
               document.getElementById('result').innerText = 'An error occurred while clearing the sheet.';
             }
           };
+          // Set the appropriate header to indicate that form data is being sent in URL-encoded format
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-          xhr.send(params.toString());
-          alert("The sheet has been cleared.");
+          xhr.send(params.toString()); // Send the request along with the encoded form parameters
+          // Notify the user that the sheet has been cleared after the request is sent
+          alert("El anexo ha sido borrado");
         }
         else {
-          alert("Operation canceled.");
+          // Notify the user that the operation was canceled if they chose not to proceed
+          alert("Operación cancelada");
         }
-        });
+      });
       
     </script>
     

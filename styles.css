@@ -4,14 +4,14 @@
 */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern, clean font */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #eaeff1; /* Light background for better contrast */
     padding: 20px;
   }
   /* Modern high contrast handling */
@@ -21,37 +21,68 @@ body {
       background-color: Highlight;
     }
   }
+  /* Form Container Syling */
   .form-container {
     width: 100%;
-    max-width: 600px;
-    margin: auto;
-    background: #67bcdd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* reduced width for better focus */
+    /*margin: auto;*/
+    background: #ffffff;
+    padding: 30px; /*increased padding for spacios layout */
+    border-radius: 10px; /* rounded corners for a modern look */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    transition: all 0.3s ease; /* smooth transitions */
   }
+  /* Form Header Styling */
   .form-container h1 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* darker text for readability */
+    text-align: center;
+    border-bottom: 2px solid #67bcdd; /* underline with brand color */
+    padding-bottom: 10px;
   }
+  /* Form Group Styling */
   .form-group label {
     display: block;
-    margin-bottom: 5px;
-    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555; /* Slightly lighter text for labels */
   }
   .form-group input,
   .form-group textarea {
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light background for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus transitions */
   }
+  /* Focus States for Inputs */
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #67bcdd; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(103, 188, 221, 0.5); /* Subtle shadow on focus */
+  }
+  /* Submit Button Styling */
   .form-group button {
-    padding: 10px 15px;
-    background: #fdf916;
-    color: #000000;
+    width: 100%;
+    padding: 12px 0;
+    background: linear-gradient(45deg, #67bcdd, #36a8ef); /* Gradient background */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
     border: none;
+    border-radius: 5px; /* Rounded corners */
     cursor: pointer;
-    margin-top: 10px;
+    transition: background 0.3s ease; /* Smooth hover transition */
   }
+  /* Hover State for Button */
   .form-group button:hover {
-    background: #fde665;
+    background: linear-gradient(45deg, #36a8ef, #67bcdd); /* Reverse gradient on hover */
+  }
+  /* Focus State for Button */
+  .form-group button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(54, 168, 239, 0.5); /* Add shadow on focus */
   }
