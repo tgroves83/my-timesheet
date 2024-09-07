@@ -10,7 +10,44 @@
     <div class="form-container">
       <!--display message to user that program has been closed-->
       <h1>Gracias por utilizar el programa de ingreso anex</h1>
-      <h2>Por favor cierre esta página</h2>
+      <h2>Abra la Google Sheet y revise las entradas para que sean correctas</h2>
+      <h2>Si todo es corecta, por favor cierre esta página</h2>
+      <form id="correctionForm">
+        <div class="form-group">
+          <label for="delete_row">Si hay algo incorecta, entra el numero del row:</label>
+          <input type= "text" id="delete_row" name="delete_row"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" id="correctButton">Corregir</button>
+        </div>
+      </form>
     </div>
+    <script>
+      // Event listener to handle correction form submission
+      document.getElementById('correctionForm').addEventListener('submit', function(e) {
+        e.preventDefault();// Prevent the form from submitting the default way
+        console.log("Form submitted");
+        // Collect form data to be sent to the server
+        if (e.submitter.id === "correctButton"){
+          document.getElementById('action').value = "correct";
+        }
+        var formData = new FormData(this);
+        // Create a new XMLHttpRequest object for making an AJAX request
+        var xhr = new XMLHttpRequest();
+        // Open a POST request to the specified URL
+        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+        // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            alert('Los datos han sido enviados');
+            window.location.href = 'asignacion.html'; //redirecting to asignacion page to enter more data
+          }  
+          else {
+            document.getElementById('result').innerText = 'An error occurred. Please try again.';
+          }
+        }
+        xhr.send(formData); //Send the data collected in a form to a server via an HTTP request
+      });
+    </script>
   </body>
 </html>
