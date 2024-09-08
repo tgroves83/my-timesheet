@@ -15,7 +15,7 @@
       <form id="correctionForm">
         <div class="form-group">
           <label for="delete_row">Si hay algo incorecta, entra el numero del row:</label>
-          <input type= "text" id="delete_row" name="delete_row"></textarea>
+          <input type= "text" id="delete_row" name="delete_row">
         </div>
         <div class="form-group">
           <button type="submit" id="correctButton">Corregir</button>
@@ -28,9 +28,9 @@
         e.preventDefault();// Prevent the form from submitting the default way
         console.log("Form submitted");
         // Collect form data to be sent to the server
-        if (e.submitter.id === "correctButton"){
-          document.getElementById('action').value = "correct";
-        }
+        //if (e.submitter.id === "correctButton"){
+          //document.getElementById('action').value = "correct";
+        //}
         var formData = new FormData(this);
         // Create a new XMLHttpRequest object for making an AJAX request
         var xhr = new XMLHttpRequest();
