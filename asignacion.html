@@ -104,9 +104,11 @@
         console.log("Form submitted");
         // Change the action based on the button clicked
         if (e.submitter.id === "gsbutton"){
-          document.getElementById('action').value = "save";
+          //document.getElementById('action').value = "save"; delete line if row below fixes error
+          formData.append('action', 'save');
         } else if (e.submitter.id === "anadbutton"){
-          document.getElementById('action').value = "add";
+          //document.getElementById('action').value = "add"; delete line if row below fixes error
+          formData.append('action', 'add');
         }
         // Collect form data to be sent to the server
         var formData = new FormData(this);
