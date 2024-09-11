@@ -72,8 +72,9 @@
         document.getElementById('submissionForm').addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission behavior
 
-        formData.append('action', 'save');
+        
         var formData = new FormData(this); // Create a FormData object from the form's data
+        formData.append('action', 'save');
         var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
         //following method needs to be changed when used from google app scripts!!
         // Initialize a new XMLHttpRequest to handle the POST request
