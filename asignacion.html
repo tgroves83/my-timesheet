@@ -102,6 +102,8 @@
       document.getElementById('asignacionForm').addEventListener('submit', function(e) {
         e.preventDefault();// Prevent the form from submitting the default way
         console.log("Form submitted");
+        // Collect form data to be sent to the server
+        var formData = new FormData(this);
         // Change the action based on the button clicked
         if (e.submitter.id === "gsbutton"){
           //document.getElementById('action').value = "save"; delete line if row below fixes error
@@ -110,8 +112,7 @@
           //document.getElementById('action').value = "add";delete line if row below fixes error
           formData.append('action', 'add');
         }
-        // Collect form data to be sent to the server
-        var formData = new FormData(this);
+        
         // Create a new XMLHttpRequest object for making an AJAX request
         var xhr = new XMLHttpRequest();
         // Open a POST request to the specified URL
