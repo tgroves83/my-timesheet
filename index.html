@@ -92,9 +92,9 @@
           document.getElementById('submissionForm').reset(); //clear form upon loading
           if (xhr.status === 200) { // Check if the request was successful
             alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
-            document.getElementById('result').innerText = 'Submission successful!'; // If successful, update the 'result' element to indicate the sheet was cleared
-            window.location.href = 'asignacion.html'; //redirect to new page
-            } else {
+            setTimeout(function() {
+              window.location.href = 'asignacion.html'; // Redirect to the next page
+            }, 500); // Delay of 500ms (can adjust as needed)} else {
         // If an error occurred, update the 'result' element with an error message
               document.getElementById('result').innerText = 'An error occurred. Please try again.';
             }
