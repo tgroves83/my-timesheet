@@ -50,7 +50,7 @@ body {
     display: block;
     text-align: left; /* Ensure everything is aligned to the left */
     margin-bottom: 20px;
-    align-items: flex-start; /* Aligns both image and heading to the left */
+    align-items: left; /* Aligns both image and heading to the left */
     width: 100%; /* Ensure full width is available */
   }
   footer {
@@ -62,15 +62,8 @@ body {
     display: block; 
     margin: 0 auto;
     float: left;
-    clear: both;
     margin-bottom: 20px;
     padding-right: 80%;
-  }
-  .logo {
-    max-width: 80px;
-    margin: 0; /* Remove any default margins */
-    padding: 0;
-    float: left; /* Force the logo to float to the left */
   }
   /* Form Header Styling */
   .form-container h1 {
