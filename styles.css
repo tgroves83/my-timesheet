@@ -46,6 +46,12 @@ body {
     margin-bottom: 20px;
     text-align: left;
   }
+  .header {
+    display: block;
+    text-align: left; /* Ensure everything is aligned to the left */
+    margin-bottom: 20px;
+    width: 100%; /* Ensure full width is available */
+  }
   footer {
     text-align: center;
     margin-top: auto; /* Pushes footer to the bottom */
