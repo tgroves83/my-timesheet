@@ -40,13 +40,21 @@ body {
   }
   header {
     text-align: left;
+    padding: 10px; /* Adjust padding as needed */
+  }
+  header img {
+    display: block;
+    margin: 0; /* Remove default margins */
+  }
+  header p {
+    margin: 0; /* Remove default margins */
   }
   footer {
     text-align: center;
     margin-top: auto; /* Pushes footer to the bottom */
   }
   img {
-    max-width: 50px;
+    max-width: 100px;
     display: block;
     margin: 0 auto;
     float: left;
