@@ -31,6 +31,15 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
     transition: all 0.3s ease; /* smooth transitions */
   }
+  p {
+    text-align: center;
+  }
+  img {
+    max-width: 50px;
+    display: block;
+    margin: 0 auto;
+    float: left;
+  }
   /* Form Header Styling */
   .form-container h1 {
     margin-bottom: 20px;
