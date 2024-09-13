@@ -44,6 +44,7 @@ body {
     flex-direction: column;
     align-items: flex-start; /* Aligns both image and heading to the left */
     margin-bottom: 20px;
+    text-align: left;
   }
   footer {
     text-align: center;
@@ -55,8 +56,8 @@ body {
     margin: 0 auto;
     float: left;
     margin-bottom: 20px;
+    padding: 0;
     padding-bottom: 10px;
-    padding-left: 0px;
   }
   /* Form Header Styling */
   .form-container h1 {
