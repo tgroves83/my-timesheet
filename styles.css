@@ -59,6 +59,12 @@ body {
     padding: 0;
     padding-bottom: 10px;
   }
+  .logo {
+    max-width: 80px;
+    margin: 0; /* Remove any default margins */
+    padding: 0;
+    float: left; /* Force the logo to float to the left */
+  }
   /* Form Header Styling */
   .form-container h1 {
     margin-bottom: 20px;
