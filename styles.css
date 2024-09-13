@@ -38,8 +38,12 @@ body {
   p {
     text-align: center;
   }
-  .logo {
-    margin-right: 300px; /* Space beside logo */
+  /* Container for logo and heading */
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns both image and heading to the left */
+    margin-bottom: 20px;
   }
   footer {
     text-align: center;
