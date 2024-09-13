@@ -31,7 +31,7 @@ body {
     max-width: 500px; /* reduced width for better focus */
     background: #ffffff;
     margin: 0 auto; /* Center the container on screen */
-    padding: 20px; /*increased padding for spacios layout */
+    padding: 10px; /*increased padding for spacios layout */
     border-radius: 10px; /* rounded corners for a modern look */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
     transition: all 0.3s ease; /* smooth transitions */
