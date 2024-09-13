@@ -43,25 +43,18 @@ body {
     align-items: center; /* Center items vertically */
     padding: 10px; /* Optional: adjust padding */
   }
-  
   .header-container {
     display: flex; /* Align image and box in a row */
     align-items: center; /* Center items vertically */
   }
-  
   .logo {
-    margin-right: 10px; /* Space between logo and box */
+    margin-right: 0px; /* Space between logo and box */
   }
-  
   .box {
     background-color: #012141; /* Dark blue color */
     width: 100px; /* Adjust width as needed */
     height: 50px; /* Adjust height as needed */
     display: inline-block; /* Make it fit the size */
-  }
-  header img {
-    display: block;
-    margin: 0; /* Remove default margins */
   }
   footer {
     text-align: center;
