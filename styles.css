@@ -56,6 +56,7 @@ body {
     float: left;
     margin-bottom: 20px;
     padding-bottom: 10px;
+    padding-left: 0px;
   }
   /* Form Header Styling */
   .form-container h1 {
