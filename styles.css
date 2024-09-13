@@ -59,13 +59,12 @@ body {
   }
   img {
     max-height: 80px;
-    display: inline-block; /* Ensure the image is treated as an inline element */
+    display: block; 
     margin: 0 auto;
-    /*float: left;*/
+    float: left;
     clear: both;
     margin-bottom: 20px;
-    padding: 0;
-    padding-bottom: 10px;
+    padding-right: 80%;
   }
   .logo {
     max-width: 80px;
@@ -79,7 +78,6 @@ body {
     font-size: 24px;
     color: #333; /* darker text for readability */
     text-align: center;
-    padding-top: 90px; /* Padding to push the heading below the image */
     border-bottom: 2px solid #449ec5d3; /* underline with brand color */
     padding-bottom: 10px;
   }
