@@ -39,9 +39,8 @@ body {
     text-align: center;
   }
   .logo {
-    margin-right: 0px; /* Space between logo and box */
+    margin-right: 300px; /* Space beside logo */
   }
-
   footer {
     text-align: center;
     margin-top: auto; /* Pushes footer to the bottom */
@@ -51,7 +50,6 @@ body {
     display: block;
     margin: 0 auto;
     float: left;
-    border-bottom: 2px solid #449ec5d3; /* underline with brand color */
     margin-bottom: 20px;
     padding-bottom: 10px;
   }
