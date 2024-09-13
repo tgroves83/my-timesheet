@@ -50,7 +50,7 @@ body {
     margin-top: auto; /* Pushes footer to the bottom */
   }
   img {
-    max-width: 80px;
+    max-height: 80px;
     display: block;
     margin: 0 auto;
     float: left;
