@@ -38,6 +38,9 @@ body {
   p {
     text-align: center;
   }
+  header {
+    text-align: left;
+  }
   footer {
     text-align: center;
     margin-top: auto; /* Pushes footer to the bottom */
