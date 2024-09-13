@@ -10,13 +10,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    
     min-height: 100vh;
     background-color: #eaeff1; /* Light background for better contrast */
     padding: 20px;
   }
   main {
     flex: 1;
+    align-items: center;
   }
   /* Modern high contrast handling */
   @media (forced-colors: active) {
