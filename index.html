@@ -10,11 +10,13 @@
     <link rel="stylesheet" type = "text/css" href="styles.css"/>
   </head>
   <body>
-    
-    <!-- Main form container -->
-    <div class="form-container">
+    <header>
       <!-- Include the header (logo) -->
-      <div id="header"></div>
+      <img src="https://github.com/tgroves83/my-timesheet/blob/main/Logo.png" alt="Logo" >
+    </header>
+    <!-- Main form container -->
+    <main>
+    <div class="form-container">
       <h1>ANEXO PARA CARGOS POR TRABAJOS ESPECIALES</h1>
       <!-- Button to clear previous form data -->
       <div class="form-group">
@@ -69,19 +71,12 @@
       <!-- Area to display result messages -->
       <div id="result"></div>
       </div>
+    </main>
+    <footer>
+      <p>&copy; TAG@2024. All rights reserved.</p>
+    </footer>
       <!-- JavaScript to handle form submission and clear functionality -->
       <script>
-        // Function to load HTML content into a div
-        function loadHTML(file, elementId) {
-          fetch(file)
-          .then(response => response.text())
-          .then(data => document.getElementById(elementId).innerHTML = data);
-        }
-
-        // Load header and footer
-        loadHTML('header.html', 'header');
-        loadHTML('footer.html', 'footer');
-        // Attach event listener to the form submission event
         document.getElementById('submissionForm').addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission behavior
 
