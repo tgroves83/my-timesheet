@@ -14,6 +14,7 @@ body {
     min-height: 100vh;
     background-color: #eaeff1; /* Light background for better contrast */
     padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */ 
   }
   main {
     flex: 1; 
@@ -23,6 +24,7 @@ body {
     .example {
       color: HighlightText;
       background-color: Highlight;
+      padding: 10px;
     }
   }
   /* Form Container Syling */
@@ -35,6 +37,7 @@ body {
     border-radius: 10px; /* rounded corners for a modern look */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
     transition: all 0.3s ease; /* smooth transitions */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
   }
   p {
     text-align: center;
@@ -87,6 +90,7 @@ body {
     margin-bottom: 10px;
     font-weight: bold;
     color: #555; /* Slightly lighter text for labels */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
   }
   .form-group input,
   .form-group textarea {
@@ -99,6 +103,7 @@ body {
     border-radius: 5px;
     background-color: #f9f9f9; /* Light background for inputs */
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus transitions */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
   }
   /* Focus States for Inputs */
   .form-group input:focus,
