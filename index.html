@@ -83,33 +83,26 @@
         
         var formData = new FormData(this); // Create a FormData object from the form's data
         formData.append('action', 'save');
-        fetch('https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok.');
-          }
-          return response.json();
-        })
-        .then(data => {
-          document.getElementById('submissionForm').reset(); // Clear form upon loading
-          if (data.message) {
-            alert('Los datos han sido enviados'); // Displays alert box to user to confirm completion
-            document.getElementById('result').innerText = data.message; // Update the 'result' element
-            if (data.redirectUrl) {
-              window.location.href = data.redirectUrl; // Redirect to new page
-            }
-            } else {
+        var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
+        //following method needs to be changed when used from google app scripts!!
+        // Initialize a new XMLHttpRequest to handle the POST request
+        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+        // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
+        xhr.onload = function() {
+          var response = JSON.parse(xhr.responseText);
+          document.getElementById('submissionForm').reset(); //clear form upon loading
+          document.getElementById('result').innerText = response.message; // Display success message
+          if (xhr.status === 200) { // Check if the request was successful
+            alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
+            setTimeout(function() {
+              window.location.href = ('https://tgroves83.github.io/my-timesheet/asignacion.html'); // Redirect to the next page
+            }, 2000); // Delay of 2000ms (can adjust as needed)} else {
+        // If an error occurred, update the 'result' element with an error message
               document.getElementById('result').innerText = 'An error occurred. Please try again.';
             }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('result').innerText = 'An error occurred. Please try again.';
-          });
-        });
+        };
+        xhr.send(formData);
+      });
 
       // Attach event listener to the clear button
       document.getElementById('clearButton').addEventListener('click', function() {
