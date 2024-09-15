@@ -134,3 +134,25 @@ body {
     outline: none; /* Remove default outline */
     box-shadow: 0 0 5px rgba(54, 168, 239, 0.5); /* Add shadow on focus */
   }
+  .form-groupb button {
+    width: 50%;
+    padding: 30px 0;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #449ec5d3, #9fa4ebee); /* Gradient background */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background 0.3s ease; /* Smooth hover transition */
+  }
+  /* Hover State for Button */
+  .form-groupb button:hover {
+    background: linear-gradient(45deg, #9fa4ebee, #449ec5d3); /* Reverse gradient on hover */
+  }
+  /* Focus State for Button */
+  .form-groupb button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(54, 168, 239, 0.5); /* Add shadow on focus */
+  }
