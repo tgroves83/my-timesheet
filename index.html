@@ -90,12 +90,9 @@
         // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
         xhr.onload = function() {
           document.getElementById('submissionForm').reset(); //clear form upon loading
-          document.getElementById('result').innerText = response.message; // Display success message
           if (xhr.status === 200) { // Check if the request was successful
             alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
-            setTimeout(function() {
-              window.location.href = 'asignacion.html'; // Redirect to the next page
-            }, 2000); // Delay of 2000ms (can adjust as needed)
+            window.location.href = 'asignacion.html'; // Redirect to the next page
           } else {
             // If an error occurred, update the 'result' element with an error message
             alert('Los datos no han sido enviados');
