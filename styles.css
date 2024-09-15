@@ -136,9 +136,9 @@ body {
   }
   .form-groupb button {
     width: 50%;
-    padding: 30px 0;
+    padding: 12px 0;
     margin-bottom: 10px;
-    background: linear-gradient(45deg, #449ec5d3, #9fa4ebee); /* Gradient background */
+    background: linear-gradient(45deg, #e92b2bd3, #f76262ee); /* Gradient background */
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -149,7 +149,7 @@ body {
   }
   /* Hover State for Button */
   .form-groupb button:hover {
-    background: linear-gradient(45deg, #9fa4ebee, #449ec5d3); /* Reverse gradient on hover */
+    background: linear-gradient(45deg, #f76262ee, #e92b2bd3); /* Reverse gradient on hover */
   }
   /* Focus State for Button */
   .form-groupb button:focus {
