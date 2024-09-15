@@ -79,7 +79,7 @@ body {
     padding-bottom: 10px;
   }
   .form-container h4 {
-    font-size: 18px;
+    font-size: 20px;
     color: #000102; /* darker text for readability */
     text-align: center;
     padding-bottom: 10px;
@@ -142,9 +142,10 @@ body {
   }
   .form-groupb button {
     width: 50%;
-    height: 20px;
+    height: 25px;
     align-items: center;
     padding: 12px 0;
+    padding-left: 30%;
     margin-bottom: 10px;
     background: linear-gradient(45deg, #e92b2bd3, #f76262ee); /* Gradient background */
     color: #fff;
