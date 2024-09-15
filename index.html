@@ -94,10 +94,11 @@
           if (xhr.status === 200) { // Check if the request was successful
             alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
             setTimeout(function() {
-              window.location.href = 'https://tgroves83.github.io/my-timesheet/asignacion.html'; // Redirect to the next page
+              window.location.href = 'asignacion.html'; // Redirect to the next page
             }, 2000); // Delay of 2000ms (can adjust as needed)
           } else {
             // If an error occurred, update the 'result' element with an error message
+            alert('Los datos no han sido enviados');
             document.getElementById('result').innerText = 'An error occurred. Please try again.';
           }
         };
