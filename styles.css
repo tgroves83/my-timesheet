@@ -78,6 +78,12 @@ body {
     border-bottom: 2px solid #449ec5d3; /* underline with brand color */
     padding-bottom: 10px;
   }
+  .form-container h4 {
+    font-size: 18px;
+    color: #000102; /* darker text for readability */
+    text-align: center;
+    padding-bottom: 10px;
+  }
   .form-container h3 {
     font-size: 18px;
     color: #1165e2; /* darker text for readability */
@@ -137,6 +143,7 @@ body {
   .form-groupb button {
     width: 50%;
     height: 20px;
+    align-items: center;
     padding: 12px 0;
     margin-bottom: 10px;
     background: linear-gradient(45deg, #e92b2bd3, #f76262ee); /* Gradient background */
