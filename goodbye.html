@@ -12,7 +12,7 @@
       <h1>Gracias por utilizar el programa de ingreso anex</h1>
       <h2>Abra la Google Sheet y revise las entradas para que sean correctas</h2>
       <div class="form-groupb">
-        <button type="submit" id="exportButton">Export to PDF</button>
+        <button type="submit" id="exportButton">Exportar a PDF</button>
       </div>
       <h3>Si todo es corecta, por favor CIERRE esta página</h3>
       <form id="correctionForm">
@@ -64,7 +64,7 @@
           xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
           xhr.onload = function() {
             if (xhr.status === 200) {
-              alert("El formulario ha exportado al PDF");
+              alert("El formulario ha sido exportado a PDF");
             } else {
               document.getElementById('result').innerText = 'An error occurred while clearing the sheet.';
             }

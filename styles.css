@@ -136,6 +136,7 @@ body {
   }
   .form-groupb button {
     width: 50%;
+    height: 20px;
     padding: 12px 0;
     margin-bottom: 10px;
     background: linear-gradient(45deg, #e92b2bd3, #f76262ee); /* Gradient background */
