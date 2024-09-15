@@ -11,6 +11,9 @@
       <!--display message to user that program has been closed-->
       <h1>Gracias por utilizar el programa de ingreso anex</h1>
       <h2>Abra la Google Sheet y revise las entradas para que sean correctas</h2>
+      <div class="form-group">
+        <button type="submit" id="exportButton">Export to PDF</button>
+      </div>
       <h3>Si todo es corecta, por favor CIERRE esta página</h3>
       <form id="correctionForm">
         <div class="form-group">
@@ -45,6 +48,35 @@
           }
         }
         xhr.send(formData); //Send the data collected in a form to a server via an HTTP request
+      });
+
+       // Attach event listener to the clear button
+       document.getElementById('exportButton').addEventListener('click', function() {
+        // Display a confirmation dialog to the user and stores answer in variable
+        var userConfirmed = confirm("¿Estás seguro de que deseas exportar a PDF?");
+
+        if (userConfirmed) {
+          var xhr = new XMLHttpRequest(); // If the user confirms, create a new XMLHttpRequest object to send the clear action to the server
+          var params = new URLSearchParams(); // Create a new URLSearchParams object to hold the parameters for the request
+          params.append('action', 'export'); // Append the 'clear' action to the parameters
+          
+          // Change the following URL when deploying on Google Apps Scripts
+          xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+          xhr.onload = function() {
+            if (xhr.status === 200) {
+              alert("El formulario ha exportado al PDF");
+            } else {
+              document.getElementById('result').innerText = 'An error occurred while clearing the sheet.';
+            }
+          };
+          // Set the appropriate header to indicate that form data is being sent in URL-encoded format
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.send(params.toString()); // Send the request along with the encoded form parameters
+        }
+        else {
+          // Notify the user that the operation was canceled if they chose not to proceed
+          alert("Operación cancelada");
+        }
       });
     </script>
   </body>
