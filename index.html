@@ -83,7 +83,7 @@
         
         var formData = new FormData(this); // Create a FormData object from the form's data
         formData.append('action', 'save');
-        var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
+        var xhr = new XMLHttpsRequest(); // Create a new XMLHttpRequest object to send the form data to the server
         //following method needs to be changed when used from google app scripts!!
         // Initialize a new XMLHttpRequest to handle the POST request
         xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
@@ -108,7 +108,7 @@
         var userConfirmed = confirm("¿Estás seguro de que deseas borrar el formulario?");
 
         if (userConfirmed) {
-          var xhr = new XMLHttpRequest(); // If the user confirms, create a new XMLHttpRequest object to send the clear action to the server
+          var xhr = new XMLHttpsRequest(); // If the user confirms, create a new XMLHttpRequest object to send the clear action to the server
           var params = new URLSearchParams(); // Create a new URLSearchParams object to hold the parameters for the request
           params.append('action', 'clear'); // Append the 'clear' action to the parameters
           
