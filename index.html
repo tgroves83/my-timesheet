@@ -86,17 +86,11 @@
         var xhr = new XMLHttpsRequest(); // Create a new XMLHttpRequest object to send the form data to the server
         //following method needs to be changed when used from google app scripts!!
         // Initialize a new XMLHttpRequest to handle the POST request
-        fetch('https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', {
-          method: 'POST',
-          body: new URLSearchParams(new FormData(form)),
-        })
-        .then(response => response.json())
-        .then(data => {
-        
+        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
         // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
-        //xhr.onload = function() {
-          //document.getElementById('submissionForm').reset(); //clear form upon loading
-          if (data.status === 'success') { // Check if the request was successful
+        xhr.onload = function() {
+          document.getElementById('submissionForm').reset(); //clear form upon loading
+          if (xhr.status === 200) { // Check if the request was successful
             alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
             window.location.href = 'asignacion.html'; // Redirect to the next page
           } else {
@@ -104,13 +98,7 @@
             alert('Los datos no han sido enviados');
             document.getElementById('result').innerText = 'An error occurred. Please try again.';
           }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Network error, please try again.');
-
-        });  
-        //}
+        };
         xhr.send(formData);
       });
 
