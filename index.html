@@ -103,10 +103,11 @@
               document.getElementById('result').innerText = 'An error occurred. Please try again.';
             }
           };
-          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-          xhr.send(params.toString()); // Send the request along with the encoded form parameters
           xhr.send(formData);
           alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.send(params.toString()); // Send the request along with the encoded form parameters
+          
 
           
         });
