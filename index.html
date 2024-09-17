@@ -90,8 +90,7 @@
           
           // Initialize a new XMLHttpRequest to handle the POST request
           xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
-          alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
-
+          
           // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
           xhr.onload = function() {
             document.getElementById('submissionForm').reset(); //clear form upon loading
@@ -106,7 +105,9 @@
           };
           xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
           xhr.send(params.toString()); // Send the request along with the encoded form parameters
-          //xhr.send(formData);
+          xhr.send(formData);
+          alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
+
           
         });
 
