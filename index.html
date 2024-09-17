@@ -78,14 +78,13 @@
       <!-- JavaScript to handle form submission and clear functionality -->
       <script>
         document.getElementById('submissionForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission behavior
+          e.preventDefault(); // Prevent the default form submission behavior
 
-        var userConfirmed = confirm("¿Estás seguro de que deseas enviar los datos?");
-        if (userConfirmed) {
           var params = new URLSearchParams();
           var formData = new FormData(this); // Create a FormData object from the form's data
 
           params.append('action', 'save');
+          alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
 
           var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
           
@@ -96,7 +95,7 @@
           xhr.onload = function() {
             document.getElementById('submissionForm').reset(); //clear form upon loading
             if (xhr.status === 200) { // Check if the request was successful
-              alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
+              alert('redirecting...'); //displays alert box to user to confirm completion
               window.location.href = 'asignacion.html'; // Redirect to the next page
             } else {
               // If an error occurred, update the 'result' element with an error message
@@ -105,13 +104,8 @@
             }
           };
           xhr.send(formData);
-        }
-        else {
-          // Notify the user that the operation was canceled if they chose not to proceed
-          alert("Operación cancelada");
-
-        }
-      });
+          
+        });
 
       // Attach event listener to the clear button
       document.getElementById('clearButton').addEventListener('click', function() {
