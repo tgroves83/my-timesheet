@@ -80,26 +80,33 @@
         document.getElementById('submissionForm').addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission behavior
 
-        
-        var formData = new FormData(this); // Create a FormData object from the form's data
-        formData.append('action', 'save');
-        var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
-        //following method needs to be changed when used from google app scripts!!
-        // Initialize a new XMLHttpRequest to handle the POST request
-        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
-        // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
-        xhr.onload = function() {
-          document.getElementById('submissionForm').reset(); //clear form upon loading
-          if (xhr.status === 200) { // Check if the request was successful
-            alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
-            window.location.href = 'asignacion.html'; // Redirect to the next page
-          } else {
-            // If an error occurred, update the 'result' element with an error message
-            alert('Los datos no han sido enviados');
-            document.getElementById('result').innerText = 'An error occurred. Please try again.';
+        var userConfirmed = confirm("¿Estás seguro de que deseas enviar los datos?");
+        if (userConfirmed) {
+          var formData = new FormData(this); // Create a FormData object from the form's data
+          formData.append('action', 'save');
+          var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
+          //following method needs to be changed when used from google app scripts!!
+          // Initialize a new XMLHttpRequest to handle the POST request
+          xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+          // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
+          xhr.onload = function() {
+            document.getElementById('submissionForm').reset(); //clear form upon loading
+            if (xhr.status === 200) { // Check if the request was successful
+              alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
+              window.location.href = 'asignacion.html'; // Redirect to the next page
+            } else {
+              // If an error occurred, update the 'result' element with an error message
+              alert('Los datos no han sido enviados');
+              document.getElementById('result').innerText = 'An error occurred. Please try again.';
+            }
           }
-        };
-        xhr.send(formData);
+          xhr.send(formData);
+        }
+        else {
+          // Notify the user that the operation was canceled if they chose not to proceed
+          alert("Operación cancelada");
+
+        }
       });
 
       // Attach event listener to the clear button
