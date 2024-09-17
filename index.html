@@ -83,7 +83,7 @@
           var params = new URLSearchParams();
           var formData = new FormData(this); // Create a FormData object from the form's data
 
-          params.append('action', 'save');
+          formData.append('action', 'save');
           
           var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
           
