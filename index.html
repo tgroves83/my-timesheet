@@ -84,11 +84,8 @@
         if (userConfirmed) {
           var params = new URLSearchParams();
           var formData = new FormData(this); // Create a FormData object from the form's data
-          formData.forEach((value, key) => {
-            params.append(key, value);
-          });
 
-          params. append('action', 'save');
+          params.append('action', 'save');
 
           var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
           
@@ -107,7 +104,7 @@
               document.getElementById('result').innerText = 'An error occurred. Please try again.';
             }
           };
-          xhr.send(params.toString());
+          xhr.send(formData);
         }
         else {
           // Notify the user that the operation was canceled if they chose not to proceed
