@@ -80,7 +80,7 @@
         document.getElementById('submissionForm').addEventListener('submit', function(e) {
           e.preventDefault(); // Prevent the default form submission behavior
 
-          var formData = new FormData(document.getElementById('yourFormId')); // Create a FormData object from the form's data
+          var formData = new FormData(document.getElementById('submissionForm')); // Create a FormData object from the form's data
           const data = {};
           formData.forEach((value,key) => {
             data[key] = value;
