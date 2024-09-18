@@ -80,31 +80,34 @@
         document.getElementById('submissionForm').addEventListener('submit', function(e) {
           e.preventDefault(); // Prevent the default form submission behavior
 
-          var formData = new FormData(document.getElementById('submissionForm')); // Create a FormData object from the form's data
-          const data = {};
-          formData.forEach((value,key) => {
-            data[key] = value;
-          });
-          
-          data.action = 'save';
+          var formData = new FormData(this); // Create a FormData object from the form's data
+
+          formData.append('action', 'save');
           
           fetch('https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', {
             method: 'POST',
-            //body: formData, // Send the formData object
+            body: formData, // Send the formData object
             headers: {
-              'Content-Type': 'application/json', // Ensure proper format
-              'Origin': 'https://tgroves83.github.io' // Ensure this matches exactly
-            },
-            body: JSON.stringify(data) // Convert form data to JSON
+              //no need to set Content-Type header for formData
+            }
           })
-          .then(response => response.json()) // Parse the JSON response
+          .then(response => {
+            if (response.ok) {
+              return response.text(); // Convert response to text
+            } else {
+              throw new Error('An error occurred while submitting the form.');
+            }
+          })
           .then(result => {
-            console.log(result); // Log the result for debugging
-            alert(result.message); // Display the success or error message in an alert
+            document.getElementById('submissionForm').reset(); // Clear form
             alert('redirecting...'); // Confirm completion
             window.location.href = 'https://tgroves83.github.io/my-timesheet/asignacion.html'; // Redirect
           })
-          .catch(error => console.error('Error:', error)); // Catch and log any errors
+          .catch(error => {
+            document.getElementById('result').innerText = 'An error occurred. Please try again.';
+            alert(error.message); // Display error message
+          });       
+ 
         });
 
         // Attach event listener to the clear button
