@@ -92,13 +92,13 @@
             }
           })
           .then(response => {
-            if (response.ok) {
+            //if (response.ok) {
               return response.text(); // Convert response to text
-            } else {
-              throw new Error('An error occurred while submitting the form.');
-            }
+            //} else {
+              //throw new Error('An error occurred while submitting the form.');
+            //}
           })
-          .then(response => response.text()) // Convert response to text
+          //.then(response => response.text()) // Convert response to text
           .then(responseText => {
             document.getElementById('submissionForm').reset(); // Clear form
             alert(responseText); // Confirm completion
