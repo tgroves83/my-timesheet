@@ -98,7 +98,8 @@
               throw new Error('An error occurred while submitting the form.');
             }
           })
-          .then(result => {
+          .then(response => response.text()) // Convert response to text
+          .then(responseText => {
             document.getElementById('submissionForm').reset(); // Clear form
             alert(responseText); // Confirm completion
             alert('redirecting...'); // inform user of redirect
