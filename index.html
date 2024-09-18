@@ -92,26 +92,21 @@
             method: 'POST',
             body: formData, // Send the formData object
             headers: {
-              //no need to set Content-Type header for formData
-            }
+              'Content-Type': 'application/json', // Ensure proper format
+            },
+            body: JSON.stringify(data) // Convert form data to JSON
           })
-          .then(response => {
-            if (response.ok) {
-              return response.text(); // Convert response to text
-            } else {
-              throw new Error('An error occurred while submitting the form.');
-            }
+          .then(response => response.json()) // Parse the JSON response
+          .then(result => {
+            console.log(result); // Log the result for debugging
+            alert(result.message); // Display the success or error message in an alert
           })
           .then(result => {
             document.getElementById('submissionForm').reset(); // Clear form
             alert('redirecting...'); // Confirm completion
             window.location.href = 'https://tgroves83.github.io/my-timesheet/asignacion.html'; // Redirect
           })
-          .catch(error => {
-            document.getElementById('result').innerText = 'An error occurred. Please try again.';
-            alert(error.message); // Display error message
-          });       
- 
+          .catch(error => console.error('Error:', error)); // Catch and log any errors
         });
 
         // Attach event listener to the clear button
