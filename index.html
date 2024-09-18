@@ -92,16 +92,14 @@
             }
           })
           .then(response => {
-            //if (response.ok) {
-              return response.text(); // Convert response to text
-            //} else {
-              //throw new Error('An error occurred while submitting the form.');
-            //}
+            if (!response.ok) {
+              throw new Error('Network response was not ok ' + response.statusText);
+            }
+             return response.text(); // Make sure this line is correct
           })
-          //.then(response => response.text()) // Convert response to text
           .then(responseText => {
-            document.getElementById('submissionForm').reset(); // Clear form
-            alert(responseText); // Confirm completion
+            console.log('Response Text:', responseText); // Debugging
+            alert(responseText); // Display the response text
             alert('redirecting...'); // inform user of redirect
             window.location.href = 'https://tgroves83.github.io/my-timesheet/asignacion.html'; // Redirect
           })
