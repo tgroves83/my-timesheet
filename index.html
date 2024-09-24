@@ -78,59 +78,70 @@
       <!-- JavaScript to handle form submission and clear functionality -->
       <script>
         document.getElementById('submissionForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission behavior
+          e.preventDefault(); // Prevent the default form submission behavior
 
-        
-        var formData = new FormData(this); // Create a FormData object from the form's data
-        formData.append('action', 'save');
-        var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
-        //following method needs to be changed when used from google app scripts!!
-        // Initialize a new XMLHttpRequest to handle the POST request
-        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
-        // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
-        xhr.onload = function() {
-          document.getElementById('submissionForm').reset(); //clear form upon loading
-          if (xhr.status === 200) { // Check if the request was successful
-            alert('Los datos han sido enviados'); //displays alert box to user to confirm completion
-            window.location.href = 'asignacion.html'; // Redirect to the next page
-          } else {
-            // If an error occurred, update the 'result' element with an error message
-            alert('Los datos no han sido enviados');
-            document.getElementById('result').innerText = 'An error occurred. Please try again.';
-          }
-        };
-        xhr.send(formData);
-      });
+          var params = new URLSearchParams();
+          var formData = new FormData(this); // Create a FormData object from the form's data
 
-      // Attach event listener to the clear button
-      document.getElementById('clearButton').addEventListener('click', function() {
-        // Display a confirmation dialog to the user and stores answer in variable
-        var userConfirmed = confirm("¿Estás seguro de que deseas borrar el formulario?");
-
-        if (userConfirmed) {
-          var xhr = new XMLHttpRequest(); // If the user confirms, create a new XMLHttpRequest object to send the clear action to the server
-          var params = new URLSearchParams(); // Create a new URLSearchParams object to hold the parameters for the request
-          params.append('action', 'clear'); // Append the 'clear' action to the parameters
+          formData.append('action', 'save');
           
-          // Change the following URL when deploying on Google Apps Scripts
+          var xhr = new XMLHttpRequest(); // Create a new XMLHttpRequest object to send the form data to the server
+          
+          
+          // Initialize a new XMLHttpRequest to handle the POST request
           xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+          
+          // Set up a function that assigns the functionality to the onload event handler that will run once the request has been completed
           xhr.onload = function() {
-            if (xhr.status === 200) {
-              document.getElementById('result').innerText = 'Sheet cleared successfully!';
-              alert("El anexo ha sido borrado");
+            document.getElementById('submissionForm').reset(); //clear form upon loading
+            if (xhr.status === 200) { // Check if the request was successful
+              alert('redirecting...'); //displays alert box to user to confirm completion
+              window.location.href = 'https://tgroves83.github.io/my-timesheet/asignacion.html'; // Redirect to the next page
             } else {
-              document.getElementById('result').innerText = 'An error occurred while clearing the sheet.';
+              // If an error occurred, update the 'result' element with an error message
+              alert('Los datos no han sido enviados');
+              document.getElementById('result').innerText = 'An error occurred. Please try again.';
             }
           };
-          // Set the appropriate header to indicate that form data is being sent in URL-encoded format
-          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-          xhr.send(params.toString()); // Send the request along with the encoded form parameters
-        }
-        else {
-          // Notify the user that the operation was canceled if they chose not to proceed
-          alert("Operación cancelada");
-        }
-      });
+          xhr.send(formData);
+        });
+
+        // Attach event listener to the clear button
+        document.getElementById('clearButton').addEventListener('click', function() {
+          // Display a confirmation dialog to the user and stores answer in variable
+          var userConfirmed = confirm("¿Estás seguro de que deseas borrar el formulario?");
+  
+          if (userConfirmed) {
+            var params = new URLSearchParams();
+            params.append('action', 'clear');
+    
+            fetch('https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/JSON',
+                'Origin': 'https://tgroves83.github.io' // Ensure this matches exactly
+  
+              },
+              body: params.toString()
+            })
+            .then(response => {
+              if (response.ok) {
+                return response.text();  // Convert response to text
+              } else {
+                throw new Error('An error occurred while clearing the sheet.');
+              }
+            })
+            .then(result => {
+              document.getElementById('result').innerText = 'Sheet cleared successfully!';
+              alert("El anexo ha sido borrado");
+            })
+            .catch(error => {
+              document.getElementById('result').innerText = error.message;
+            });
+          } else {
+            alert("Operación cancelada");
+          }
+        });
     </script>
   </body>
 </html>
