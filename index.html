@@ -80,7 +80,7 @@
         document.getElementById('submissionForm').addEventListener('submit', function(e) {
           e.preventDefault(); // Prevent the default form submission behavior
 
-          var params = new URLSearchParams();
+          //var params = new URLSearchParams();
           var formData = new FormData(this); // Create a FormData object from the form's data
 
           formData.append('action', 'save');
@@ -107,41 +107,35 @@
         });
 
         // Attach event listener to the clear button
-        document.getElementById('clearButton').addEventListener('click', function() {
-          // Display a confirmation dialog to the user and stores answer in variable
-          var userConfirmed = confirm("¿Estás seguro de que deseas borrar el formulario?");
-  
-          if (userConfirmed) {
-            var params = new URLSearchParams();
-            params.append('action', 'clear');
-    
-            fetch('https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/JSON',
-                'Origin': 'https://tgroves83.github.io' // Ensure this matches exactly
-  
-              },
-              body: params.toString()
-            })
-            .then(response => {
-              if (response.ok) {
-                return response.text();  // Convert response to text
-              } else {
-                throw new Error('An error occurred while clearing the sheet.');
-              }
-            })
-            .then(result => {
+      document.getElementById('clearButton').addEventListener('click', function() {
+        // Display a confirmation dialog to the user and stores answer in variable
+        var userConfirmed = confirm("¿Estás seguro de que deseas borrar el formulario?");
+
+        if (userConfirmed) {
+          var xhr = new XMLHttpRequest(); // If the user confirms, create a new XMLHttpRequest object to send the clear action to the server
+          var params = new URLSearchParams(); // Create a new URLSearchParams object to hold the parameters for the request
+          params.append('action', 'clear'); // Append the 'clear' action to the parameters
+          
+          // Change the following URL when deploying on Google Apps Scripts
+          xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzQ8ZjExy4bdkMcy8fZgt9GpGOow1DG0A4YsFfzV0ICV0h9N91W0wDiAwS95hkQh5QpWQ/exec', true);
+          xhr.onload = function() {
+            if (xhr.status === 200) {
               document.getElementById('result').innerText = 'Sheet cleared successfully!';
-              alert("El anexo ha sido borrado");
-            })
-            .catch(error => {
-              document.getElementById('result').innerText = error.message;
-            });
-          } else {
-            alert("Operación cancelada");
-          }
-        });
+            } else {
+              document.getElementById('result').innerText = 'An error occurred while clearing the sheet.';
+            }
+          };
+          // Set the appropriate header to indicate that form data is being sent in URL-encoded format
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.send(params.toString()); // Send the request along with the encoded form parameters
+          // Notify the user that the sheet has been cleared after the request is sent
+          alert("El anexo ha sido borrado");
+        }
+        else {
+          // Notify the user that the operation was canceled if they chose not to proceed
+          alert("Operación cancelada");
+        }
+      });
     </script>
   </body>
 </html>
